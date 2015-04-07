@@ -31,7 +31,7 @@ def calculate_special_slide_len(s):
 
     # s = (0+) | (0*)(1+) => no solution
     if len(segments_lens) <= 2:
-        return (0, '', '')
+        return (0, "can't be cut", "can't be cut")
     # segments_lens = [ len(0*), ..., len(1*) ]
     if len(segments_lens) % 2 == 1:
         segments_lens.append(0)
@@ -39,11 +39,11 @@ def calculate_special_slide_len(s):
     if segments_lens[0] == 0 and segments_lens[-1] == 0:
         zeros = s.count('0')
         ones = s.count('1')
-        if ones >= zeros:
-            left, right = lens_of_segments_to_string(segments_lens, 1)
-        else:
-            left, right = lens_of_segments_to_string(segments_lens, -1)
-        return len(s), left, right
+        #if ones >= zeros:
+        #    left, right = lens_of_segments_to_string(segments_lens, 1)
+        #else:
+        #    left, right = lens_of_segments_to_string(segments_lens, -1)
+        return len(s), "cut it yourself", "cut it yourself"
 
     middle_part_ones = 0
     middle_part_zeros = 0
@@ -109,9 +109,11 @@ def random_test(prefix='', suffix=''):
 
 if __name__ == '__main__':
 
-    #preset_test()
+    preset_test()
 
-    #test('00010000011111110000000001111111111')
+    test('00010000011111110000000001111111111')
+
+    test('10000')
 
     for _ in range(3):
         random_test()
