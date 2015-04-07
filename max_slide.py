@@ -3,7 +3,9 @@ import sys
 #####################################################################
 # Problem Description:
 #    Given a binary string s, calculate its maximum len of `slide`.
-#    A `slide` is a string of the following regular expression format: "1+0+"
+#    A `slide` is a string that can be divided into two parts, 
+#    the first part of the string: count('1') > count('0')
+#    the second part of the string: count('0') > count('1')
 #####################################################################
 
 
